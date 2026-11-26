@@ -704,7 +704,7 @@ export function App() {
             >
               <div className="p-4 border-b border-white/[0.08] flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <img src="/icon.svg" alt="KasKelompok" className="h-8 w-8 rounded-lg" />
+                  <img src="/logo.png" alt="KasKelompok" className="h-8 w-8 rounded-lg" />
                   <div className="min-w-0">
                     <p className="font-display text-sm font-bold text-slate-100 truncate">
                       {activeGroup.name}
