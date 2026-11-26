@@ -24,15 +24,15 @@
     />
   </head>
   <body class="bg-[#090B10] text-slate-100 antialiased selection:bg-[#D4AF37]/30 selection:text-[#F5C451]">
-  <script>
-  window.onerror = function(msg, url, line, col, err) {
-    document.body.innerHTML += '<div style="background:#fee;color:#900;padding:16px;font-family:monospace;font-size:14px;border-bottom:1px solid #f00;"><b>ERROR:</b> ' + msg + '<br>Baris: ' + line + '</div>';
-  };
-  window.onunhandledrejection = function(e) {
-    document.body.innerHTML += '<div style="background:#fee;color:#900;padding:16px;font-family:monospace;font-size:14px;border-bottom:1px solid #f00;"><b>PROMISE ERROR:</b> ' + (e.reason && e.reason.message ? e.reason.message : e.reason) + '</div>';
-  };
-  </script>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <script>
+    window.onerror = function(msg, url, line, col, err) {
+      document.body.innerHTML += '<div style="background:#fee;color:#900;padding:16px;font-family:monospace;font-size:14px;border-bottom:1px solid #f00;"><b>ERROR:</b> ' + msg + '<br>Baris: ' + line + '</div>';
+    };
+    window.onunhandledrejection = function(e) {
+      document.body.innerHTML += '<div style="background:#fee;color:#900;padding:16px;font-family:monospace;font-size:14px;border-bottom:1px solid #f00;"><b>PROMISE ERROR:</b> ' + (e.reason && e.reason.message ? e.reason.message : e.reason) + '</div>';
+    };
+  </script>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
 </html>
