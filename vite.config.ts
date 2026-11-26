@@ -8,7 +8,7 @@ import {VitePWA} from 'vite-plugin-pwa';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
   return {
-    base: '/Kelompok-Ande-ande-lumat/',
+    base: './',
     plugins: [
       react(),
       tailwindcss(),
