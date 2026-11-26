@@ -5,9 +5,10 @@ import path from 'path';
 import {defineConfig} from 'vite';
 import {VitePWA} from 'vite-plugin-pwa';
 
-export default defineConfig({
-  base: '/Kelompok-Ande-ande-lumut/' ,
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, '.', '');
   return {
+    base: '/Kelompok-Ande-ande-lumat/',
     plugins: [
       react(),
       tailwindcss(),
