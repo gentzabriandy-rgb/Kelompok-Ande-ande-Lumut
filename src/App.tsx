@@ -281,7 +281,7 @@ export function App() {
     return (
       <div className="min-h-screen bg-[#090B10] flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <img src="/icon.svg" alt="KasKelompok" className="h-12 w-12 rounded-2xl animate-pulse" />
+          <img src="./icon.svg" alt="KasKelompok" className="h-12 w-12 rounded-2xl animate-pulse" />
           <p className="text-xs text-slate-400">Menghubungkan KasKelompok...</p>
         </div>
       </div>
