@@ -1,0 +1,77 @@
+{
+  "entities": {
+    "Group": {
+      "title": "Group",
+      "description": "Grup KasKelompok dengan daftar member, editor, target kas, dan tarif denda.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 120 },
+        "inviteCode": { "type": "string", "maxLength": 24 },
+        "ownerId": { "type": "string", "maxLength": 128 },
+        "memberUids": { "type": "array" },
+        "editorUids": { "type": "array" },
+        "targetAmount": { "type": "number" },
+        "fineRate": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "inviteCode", "ownerId", "memberUids", "editorUids", "targetAmount", "fineRate"]
+    },
+    "GroupInvite": {
+      "title": "GroupInvite",
+      "description": "Kode undangan huruf kapital yang memetakan ke groupId.",
+      "type": "object",
+      "properties": {
+        "groupId": { "type": "string", "maxLength": 128 },
+        "inviteCode": { "type": "string", "maxLength": 24 },
+        "ownerId": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["groupId"]
+    },
+    "GroupSecurityConfig": {
+      "title": "GroupSecurityConfig",
+      "description": "Dokumen write-only untuk menyimpan SHA-256 hash PIN Mode Editor.",
+      "type": "object",
+      "properties": {
+        "pinHash": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["pinHash"]
+    },
+    "GroupModule": {
+      "title": "GroupModule",
+      "description": "Dokumen modul tunggal per fitur pada subkoleksi modules.",
+      "type": "object",
+      "properties": {
+        "groupId": { "type": "string", "maxLength": 128 },
+        "moduleType": { "type": "string", "maxLength": 64 },
+        "items": { "type": "object" },
+        "updatedBy": { "type": "string", "maxLength": 128 },
+        "updatedByName": { "type": "string", "maxLength": 120 },
+        "docTitle": { "type": "string", "maxLength": 200 },
+        "docContent": { "type": "string", "maxLength": 50000 },
+        "docAlign": { "type": "string", "enum": ["LEFT", "CENTER", "RIGHT"] },
+        "docLinkUrl": { "type": "string", "maxLength": 1000 },
+        "docImageUrl": { "type": "string", "maxLength": 2000 }
+      },
+      "required": ["groupId", "moduleType", "items", "updatedBy", "updatedByName"]
+    }
+  },
+  "firestore": {
+    "/groups/{groupId}": {
+      "schema": { "$ref": "#/entities/Group" },
+      "description": "Dokumen utama grup KasKelompok."
+    },
+    "/groupInvites/{inviteCode}": {
+      "schema": { "$ref": "#/entities/GroupInvite" },
+      "description": "Lookup kode undangan ke groupId."
+    },
+    "/groups/{groupId}/security/config": {
+      "schema": { "$ref": "#/entities/GroupSecurityConfig" },
+      "description": "Konfigurasi hash PIN editor (write-only)."
+    },
+    "/groups/{groupId}/modules/{moduleId}": {
+      "schema": { "$ref": "#/entities/GroupModule" },
+      "description": "Dokumen modul real-time (26 modul valid)."
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "KasKelompok",
+  "description": "Manajemen kas kelas, dana usaha, notulen rapat, dan koordinasi produksi real-time.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
